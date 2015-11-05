@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <!-- 控制台输出 -->
+    <appender name="Console" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p [%c.%M(%L)] %m%n"/>
+        </layout>
+    </appender>
+
+    <!-- 输出到simple.info文件  -->
+    <appender name="SampleFile" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/XXXXX/sample.info"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p [%c.%M(%L)] %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="OtherFile" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/XXXXX/other.info"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p [%c.%M(%L)] %m%n"/>
+        </layout>
+    </appender>
+
+    <!-- 定义Package的日志输出。additivity="false"，不继承root定义的appender -->
+    <logger name="com.aaa.bbb" additivity="false">
+        <level value="DEBUG"/>
+        <appender-ref ref="OtherFile"/>
+    </logger>
+
+    <!-- 定义Package的日志输出。additivity默认为true，继承root定义的appender -->
+    <logger name="org.springframework">
+        <level value="INFO"/>
+    </logger>
+
+    <root>
+        <level value="INFO"/>
+        <appender-ref ref="Console"/>
+        <appender-ref ref="SampleFile"/>
+    </root>
+</log4j:configuration>

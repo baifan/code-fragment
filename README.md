@@ -11,6 +11,8 @@
 ## Java常用代码片段
 ### 连接池
 * [pool.properties](java/pool.properties)
+### 日志输出
+* [log4j.xml](java/log4j.xml)
 
 ## 常用服务配置
 ### Redis配置
