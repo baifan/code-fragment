@@ -4,6 +4,7 @@
 #### Linux bash常用脚本
 * [pause.sh](shell/pause.sh) 模仿window的pause命令.
 * [replace_string_in_file.sh](shell/replace_string_in_file.sh) 搜索当前文件夹和其子文件夹,找到对应文件,替换内部字符串.
+* [file_real_path.sh](shell/file_real_path.sh) 获取执行文件的目录
 
 #### Windows shell常用脚本
 * [replace_string_in_file.bat](shell/replace_string_in_file.bat) 搜索当前文件夹和其子文件夹,找到对应文件,替换内部字符串.
